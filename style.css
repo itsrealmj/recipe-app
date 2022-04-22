@@ -1,0 +1,160 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-color: #40DFEF;
+	/*background-image: url("./images/bg.jpg");*/
+	background-size: cover;
+	font-family: sans-serif;
+}
+:root {
+	--transparentWhite : rgba(252, 252, 252, 0.8);
+	--fontColor : rgba(0,0,0,.7);
+}
+.form-container {
+	padding: 2rem;
+}
+
+.form-container form{
+	/*margin-top: 2rem;*/
+	display: flex;
+	justify-content: center;
+	gap: .5rem;
+	/*padding: 2rem 5rem;*/
+	font-size: 1.05rem;
+	color: rgba(0, 0, 0, 1.0);
+	
+}
+.form-container form .input-field {
+	border: none;
+	outline: none;
+	border-bottom: 2px solid white;
+	background-color: transparent;
+	padding: .5rem;
+}
+.form-container form .submitBtn {
+	box-shadow: 5px 5px 20px 0 gray;
+	padding: 0 .3rem;
+	border-radius: 5px;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	color: gray;
+	background-color: transparent;
+	transition: .3s ease-in-out;
+}
+.form-container form .submitBtn:hover {
+	transform: scale(1.05);
+	
+}
+
+form input {
+	/*padding: .3rem .5rem;*/
+}
+
+
+
+.card-container {
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 2rem;
+	/*border: 1px solid gray; */
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, .3);
+	border-radius: 5px;
+	/*padding: 2rem;*/
+}
+.card-container figure {
+	position: relative;
+	padding: 1rem;
+	border-bottom: 2px solid whitesmoke;
+}
+.card-container figure h5{
+	/*font-size: 1.1rem;*/
+	color: rgba(0, 0, 0, .6);
+}
+.card-container figure img {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	position: absolute;
+	top: 70%;
+	right: 5%;
+	border-radius: 5px;
+	border: 2px solid white;
+}
+
+.card-container figcaption {
+	/*background-color: whitesmoke;*/
+	padding: 2rem 1rem;
+}
+.card-container figcaption ul li{
+	color: rgba(0, 0, 0, .6);
+	list-style: none;
+	font-size: .8rem;
+}
+.card-container figcaption ul {
+	
+	
+}
+
+
+
+
+
+
+
+
+
+section {
+	width: 80%;
+	margin: 0 auto;
+}
+section figure {
+	display: flex;
+	justify-content: space-between;
+	color: var(--fontColor);
+	font-family: verdana;
+}
+section figure p {
+	padding-bottom: .5rem;
+	border-bottom: 1px dotted gray;
+}
+section figure img { width: 300px; height: 150px; object-fit: cover;}
+section figcaption {
+	display: flex;
+	justify-content: space-between;
+	color: var(--fontColor);
+	font-family: verdana;
+
+}
+section figcaption .ingredients-section, .nutrients-section {
+	background-color: var(--transparentWhite);
+	box-shadow: 10px 10px 20px 0 gray;
+	border-radius: 5px;
+
+}
+section figcaption .ingredients-section, .nutrients-section h3 {
+	text-align: center;
+}
+section figcaption .ingredients-section ul, .nutrients-section ul {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 450px;
+	padding: 2rem;
+	gap: 1rem 2rem;
+	list-style: square;
+}
+
+.btn-container {
+	margin-top: 2rem;
+	display: flex;
+	gap: 0 3px;
+	justify-content: center;
+}
+
+.pageBtn {
+	padding: .3rem .5rem;
+}

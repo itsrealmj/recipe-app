@@ -1,0 +1,49 @@
+body {
+	background-image: url("./bg.jpg");
+	background-size: cover;
+	font-family: sans-serif;
+}
+:root {
+	--transparentWhite : rgba(252, 252, 252, 0.8);
+	--fontColor : rgba(0,0,0,.7);
+}
+section {
+	width: 80%;
+	margin: 0 auto;
+}
+section figure {
+	display: flex;
+	justify-content: space-between;
+	color: var(--fontColor);
+	font-family: verdana;
+}
+section figure p {
+	padding-bottom: .5rem;
+	border-bottom: 1px dotted gray;
+}
+section figure img { width: 300px; height: 150px; object-fit: cover;}
+section figcaption {
+	display: flex;
+	justify-content: space-between;
+	color: var(--fontColor);
+	font-family: verdana;
+
+}
+section figcaption .ingredients-section, .nutrients-section {
+	background-color: var(--transparentWhite);
+	box-shadow: 10px 10px 20px 0 gray;
+	border-radius: 5px;
+
+}
+section figcaption .ingredients-section, .nutrients-section h3 {
+	text-align: center;
+}
+section figcaption .ingredients-section ul, .nutrients-section ul {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 450px;
+	padding: 2rem;
+	gap: 1rem 2rem;
+	list-style: square;
+}
