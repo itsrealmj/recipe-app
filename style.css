@@ -129,6 +129,16 @@ section figcaption {
 	font-family: verdana;
 
 }
+
+.card-container .more-details {
+	color: var(--fontColor);
+	font-size: .8rem;
+	border-bottom: 1px solid white;
+	width: 97px;
+	padding-bottom: 5px;
+	margin-top: 1rem;
+	cursor: pointer;
+}
 section figcaption .ingredients-section, .nutrients-section {
 	background-color: var(--transparentWhite);
 	box-shadow: 10px 10px 20px 0 gray;
@@ -144,17 +154,23 @@ section figcaption .ingredients-section ul, .nutrients-section ul {
 	flex-wrap: wrap;
 	width: 450px;
 	padding: 2rem;
+	margin-bottom: 1rem;
 	gap: 1rem 2rem;
-	list-style: square;
+
 }
 
-.btn-container {
-	margin-top: 2rem;
+.main-container-btn { 
+	margin: 2rem auto;
 	display: flex;
-	gap: 0 3px;
 	justify-content: center;
+	
+}
+.main-container-btn .container-btn {
+	display: flex;
+	justify-content: center;
+	gap: 0 1rem;
 }
 
-.pageBtn {
+.container-btn button {
 	padding: .3rem .5rem;
 }

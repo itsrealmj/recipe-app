@@ -1,3 +1,8 @@
+let currentPage = 1
+let rows = 3
+let listElement = document.querySelector('.main-container')
+let containerBtns = document.querySelector('.container-btn')
+
 
 document.querySelector("form").addEventListener('submit', function(event) {
 	event.preventDefault()
@@ -7,62 +12,119 @@ document.querySelector("form").addEventListener('submit', function(event) {
 	.then(response => {
 		return response.json()
 	}).then(response => {
-		// console.log(response)
-		 displayRecipes(response, listElement, rows, currentPage)
-		 setUpPagination(response, containerBtns, rows)
+		 storeData(response) 
 	})
-
 	recipeName.value = ""
 })
 
-let currentPage = 1
-let rows = 3
-let listElement = document.querySelector('.main-container')
-let containerBtns = document.querySelector('.container-btn')
-// display(array, listElement, rows, currentPage )
-function displayRecipes(response, wrapper, rowsPerpage, page) {
-	let recipeArray = response.hits
 
-	wrapper.innerHTML = ""
-    page --
 
-    let start = rowsPerpage * page
-    let end = start + rowsPerpage
-    let paginatedItems = recipeArray.slice(start, end)
-    console.log(paginatedItems)
+function storeData(response) {
+	const recipeArray = response.hits
+	window.localStorage.setItem("recipeArray", JSON.stringify(recipeArray));
 
-	paginatedItems.map(item => {
-		const calcium = item.recipe.totalNutrients.CA.label
-		const kcal = item.recipe.totalNutrients.ENERC_KCAL.label
-		const K = item.recipe.totalNutrients.K.label
-
-		const calciumQty = item.recipe.totalNutrients.CA.quantity
-		const kcalQty = item.recipe.totalNutrients.ENERC_KCAL.quantity
-		const KQty = item.recipe.totalNutrients.K.quantity
-
-		const calciumUnit = item.recipe.totalNutrients.CA.unit
-		const kcalUnit = item.recipe.totalNutrients.ENERC_KCAL.unit
-		const KUnit = item.recipe.totalNutrients.K.unit
-		let	html = `
-			<section class="card-container">
-				<figure>
-					<h5>${item.recipe.label}</h5>
-					<img src="${item.recipe.image}">
-				</figure>
-				<figcaption>
-					<ul>
-						<li>🍚 <span class="kcal">${kcal} </span>: ${Math.round(kcalQty)} ${kcalUnit}</li>
-						<li>🥦 <span class="calcium">${calcium}</span> : ${Math.round(calciumQty)} ${calciumUnit}</li>
-						<li>🍌 <span class="K">${K}</span> : ${Math.round(KQty)} ${KUnit}</li>
-						<a href="./recipe-details/recipe-details.html">More details...</a>
-					</ul>
-				</figcaption>
-
-			</section> `
-
-		wrapper.innerHTML += html
-})	
+	displayRecipes(recipeArray, listElement, rows, currentPage)
+	setUpPagination(response, containerBtns, rows)
 }
+
+
+function displayRecipes(response, wrapper, rowsPerpage, page) {
+
+    if ( localStorage !== null) {
+ 	    let getRecipeData = localStorage.getItem("recipeArray")
+ 	    	getRecipeData = JSON.parse(getRecipeData)
+
+			wrapper.innerHTML = "";
+		    page --
+
+		    let start = rowsPerpage * page
+		    let end = start + rowsPerpage
+		    let paginatedItems = getRecipeData.slice(start, end)
+
+		    
+
+		paginatedItems.map(item => {
+			const calcium = item.recipe.totalNutrients.CA.label
+			const kcal = item.recipe.totalNutrients.ENERC_KCAL.label
+			const K = item.recipe.totalNutrients.K.label
+
+			const calciumQty = item.recipe.totalNutrients.CA.quantity
+			const kcalQty = item.recipe.totalNutrients.ENERC_KCAL.quantity
+			const KQty = item.recipe.totalNutrients.K.quantity
+
+			const calciumUnit = item.recipe.totalNutrients.CA.unit
+			const kcalUnit = item.recipe.totalNutrients.ENERC_KCAL.unit
+			const KUnit = item.recipe.totalNutrients.K.unit
+
+			let	html = `
+					<section class="card-container">
+						<figure>
+							<h5>${item.recipe.label}</h5>
+							<img src="${item.recipe.image}">
+						</figure>
+						<figcaption>
+							<ul>
+								<li>🍚 <span class="kcal">${kcal} </span>: ${Math.round(kcalQty)} ${kcalUnit}</li>
+								<li>🥦 <span class="calcium">${calcium}</span> : ${Math.round(calciumQty)} ${calciumUnit}</li>
+								<li>🍌 <span class="K">${K}</span> : ${Math.round(KQty)} ${KUnit}</li>
+								<p href="./recipe-details/recipe-details.html" class="more-details">More details ...</p>
+							</ul>
+						</figcaption>
+
+					</section> `
+
+			wrapper.innerHTML += html
+
+			window.localStorage.setItem("paginatedItems", JSON.stringify(paginatedItems))
+		})
+	}
+}
+
+function retainData(wrapper) {
+	wrapper.innerHTML = ""
+
+	if (localStorage !== null) {
+		let paginatedItems = localStorage.getItem("paginatedItems")
+			paginatedItems = JSON.parse(paginatedItems)
+
+			paginatedItems.map(item => {
+			const calcium = item.recipe.totalNutrients.CA.label
+			const kcal = item.recipe.totalNutrients.ENERC_KCAL.label
+			const K = item.recipe.totalNutrients.K.label
+
+			const calciumQty = item.recipe.totalNutrients.CA.quantity
+			const kcalQty = item.recipe.totalNutrients.ENERC_KCAL.quantity
+			const KQty = item.recipe.totalNutrients.K.quantity
+
+			const calciumUnit = item.recipe.totalNutrients.CA.unit
+			const kcalUnit = item.recipe.totalNutrients.ENERC_KCAL.unit
+			const KUnit = item.recipe.totalNutrients.K.unit
+
+			let	html = `
+					<section class="card-container">
+						<figure>
+							<h5>${item.recipe.label}</h5>
+							<img src="${item.recipe.image}">
+						</figure>
+						<figcaption>
+							<ul>
+								<li>🍚 <span class="kcal">${kcal} </span>: ${Math.round(kcalQty)} ${kcalUnit}</li>
+								<li>🥦 <span class="calcium">${calcium}</span> : ${Math.round(calciumQty)} ${calciumUnit}</li>
+								<li>🍌 <span class="K">${K}</span> : ${Math.round(KQty)} ${KUnit}</li>
+								<p href="./recipe-details/recipe-details.html" class="more-details">More details ...</p>
+							
+							</ul>
+							
+						</figcaption>
+
+					</section> `
+			wrapper.innerHTML += html
+			})
+		
+	}
+}
+retainData(listElement)
+
 
 function setUpPagination(arrayItems, wrapper, rowsPerpage) {
 	let response = arrayItems.hits
@@ -74,6 +136,7 @@ function setUpPagination(arrayItems, wrapper, rowsPerpage) {
         let btn = paginationBtn(i, response)
         wrapper.appendChild(btn)
     }
+    
 }
 
 function paginationBtn(page, items) {
@@ -81,7 +144,6 @@ function paginationBtn(page, items) {
     let button = document.createElement('button')
     button.innerText = page
 
-    // if (currentPage === page) button.classList.add('active')
     button.addEventListener('click', function() {
         currentPage = page
         displayRecipes(items, listElement, rows, currentPage)
