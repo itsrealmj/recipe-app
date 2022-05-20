@@ -78,6 +78,7 @@ function displayRecipes(response, wrapper, rowsPerpage, page) {
 			window.localStorage.setItem("paginatedItems", JSON.stringify(paginatedItems))
 		})
 	}
+
 }
 
 function retainData(wrapper) {
@@ -121,6 +122,27 @@ function retainData(wrapper) {
 			wrapper.innerHTML += html
 			})
 		
+	}else if (localStorage === null) {
+		let html = `
+					<section class="card-container">
+						<figure>
+							<h5>${item.recipe.label}</h5>
+							<img src="${item.recipe.image}">
+						</figure>
+						<figcaption>
+							<ul>
+								<li>🍚 <span class="kcal">${kcal} </span>: ${Math.round(kcalQty)} ${kcalUnit}</li>
+								<li>🥦 <span class="calcium">${calcium}</span> : ${Math.round(calciumQty)} ${calciumUnit}</li>
+								<li>🍌 <span class="K">${K}</span> : ${Math.round(KQty)} ${KUnit}</li>
+								<p href="./recipe-details/recipe-details.html" class="more-details">More details ...</p>
+							
+							</ul>
+							
+						</figcaption>
+
+					</section> `
+			wrapper.innerHTML += html
+
 	}
 }
 retainData(listElement)

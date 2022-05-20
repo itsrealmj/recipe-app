@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>LogIn</title>
+	<link rel="stylesheet" type="text/css" href="./login/login.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+	<section class="banner">
+			<h1>Learn to cook </h1>
+			<p>By reading other ideas recipe and see what makes a good food to be serve in your family's meal. </p>
+	</section>
+	<main class="main">
+		<section class="form-container">
+			<section class="login-section login">
+				<form class="form"  method="POST" action="./index.html" >
+						<p class="">Try this recipe app generator for free </p>
+						<input type="text" name="email" placeholder="Email" required><br>
+						<input type="password" name="password" placeholder="Password" required><br>
+						<input class="submitBtn" type="submit" name="submit" value="Login">
+						<span>Not yet registered ? <span class="signupBtn"> Signup </span></span>
+				</form>
+			</section>
+			<section class="login-section">
+				<form class="form sign-up" method="POST" action="./index.html">
+					<p class="">Try this recipe app generator for free </p>
+					<input type="text" name="email" placeholder="Email" required><br>
+					<input type="password" name="password" placeholder="Password" required><br>
+					<input class="submitBtn" type="submit" name="submit" value="Signup">
+					<span>Already registered ? <span class="loginBtn"> Login </span></span>
+				</form>
+			</section>
+		</section>
+	</main>
+	<script src="./login/form.js"></script>
+</body>
+</html>

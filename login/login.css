@@ -1,0 +1,128 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+
+.main {
+    transform: translateX(0);
+    overflow-x: hidden;
+}
+
+.main .form-container {
+	display: inline-flex;
+    transition: .5s ease-in-out;
+    padding: 2rem 0;
+    overflow: hidden;
+    gap: 5px;
+}
+.main .form-container.active {
+    transform: translateX(-350px);
+}
+
+.login-section {
+	background-color: white;
+	transition: .5 ease-in-out;
+}
+.login-section .signupBtn, .login-section .loginBtn {
+	cursor: pointer;
+	border-bottom: 1px solid gray;
+}
+
+
+.login-section .form {
+	line-height: 3rem;
+	padding: 1rem;
+	box-shadow: 1px 1px 5px 1px gray;
+	border-radius: 5px;
+	min-width: 350px;
+	margin: 0 auto;
+
+}
+.login-section .form input {
+	color: rgba(0, 0, 0, .8);
+	outline: none;
+	width: 100%;
+	padding: 0.7rem;
+	font-size: 1rem;
+	border: none;
+	border: 1px solid gray;
+	border-radius: 3px;
+}
+.login-section .form .submitBtn {
+	margin-top: 1rem;
+	border: none;
+	cursor: pointer;
+	font-weight: 600;
+	background-color: transparent;
+	box-shadow: 1px 1px 5px  gray;
+	color: rgba(0, 0, 0, .8);
+}
+
+.login-section .form span {
+	font-size: .9rem;
+}
+.login-section p {
+	text-align: center;
+	padding: 1rem 0;
+	background-color: #332FD0;
+	border-radius: 5px;
+	color: whitesmoke;
+	margin-bottom: 1rem;
+}
+
+
+.banner {
+	padding-top: 1rem ;
+	text-align: center;
+	color: rgba(0, 0, 0, .8);
+	line-height: 1.7rem;
+}	
+.banner h1 {
+	width: 80%;
+	margin: 0 auto;
+	font-weight: bolder;
+	font-size: 2rem;
+}
+
+.banner p {
+	padding: 1rem 0;
+
+}
+
+	@media only screen and (min-width: 600px) {
+	  body {
+	  	display: flex;
+	  	justify-content: space-around;
+	  	padding: 2rem;
+	  }
+	  .banner {
+	  	width: 400px;
+	  }
+	  .main {
+		width: 350px;
+	    transform: translateX(0);
+	    overflow-x: hidden;
+	}
+
+	.main .form-container {
+		display: inline-flex;
+	    transition: .5s ease-in-out;
+	    padding: 1rem 0;
+	    overflow: hidden;
+	    gap: 5px;
+	}
+	.main .form-container.active {
+	    transform: translateX(-350px);
+	    /*overflow-x: hidden;*/
+	}
+	.login-section .form {
+	line-height: 3rem;
+	padding: 1rem;
+	box-shadow: 1px 1px 5px 1px gray;
+	border-radius: 5px;
+	min-width: 350px;
+	margin: 0 auto;
+	}
+}

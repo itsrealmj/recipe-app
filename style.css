@@ -13,6 +13,10 @@ body {
 	--transparentWhite : rgba(252, 252, 252, 0.8);
 	--fontColor : rgba(0,0,0,.7);
 }
+
+
+
+
 .form-container {
 	padding: 2rem;
 }
@@ -173,4 +177,31 @@ section figcaption .ingredients-section ul, .nutrients-section ul {
 
 .container-btn button {
 	padding: .3rem .5rem;
+}
+
+
+
+
+@media only screen and (min-width: 600px) {
+	.form-container form{
+		display: flex;
+		justify-content: center;
+		width: 70%;
+		margin: 0 auto;
+		gap: 1rem;
+	}
+	
+	.form-container input{
+		display: flex;
+		justify-content: center;
+		width: 50%;
+		gap: .5rem;
+		font-size: 1.05rem;
+	}
+	.form-container form .submitBtn {
+		width: 17%;
+	}
+	.card-container {
+		width: 40%;
+	}
 }
